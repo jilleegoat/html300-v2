@@ -1,0 +1,33 @@
+// Colors
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+
+// Fonts
+$font-family: Arial, sans-serif;
+$font-size-base: 16px;
+
+// Spacing
+$spacing-unit: 8px;
+$padding-base-vertical: $spacing-unit;
+$padding-base-horizontal: $spacing-unit * 2;
+$margin-base-vertical: $spacing-unit;
+$margin-base-horizontal: $spacing-unit * 2;
+
+// Border
+$border-width: 1px;
+$border-radius: 4px;
+
+// Box Shadow
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Your styles go here...
