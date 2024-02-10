@@ -1,0 +1,19 @@
+{
+  "name": "lesson04",
+  "version": "1.0.0",
+  "description": "Lesson04",
+  "main": "index.js",
+  "scripts": {
+    "test": "testing"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jilleegoat/html300-v2.git"
+  },
+  "author": "Jill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jilleegoat/html300-v2/issues"
+  },
+  "homepage": "https://github.com/jilleegoat/html300-v2#readme"
+}
