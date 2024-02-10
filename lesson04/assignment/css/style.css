@@ -463,6 +463,7 @@ footer {
     padding: 10px;
   }
   /* The Modal (background) */
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -474,15 +475,56 @@ footer {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  opacity: 0; /* Start fully transparent */
+  visibility: hidden; /* Start hidden */
+  transition: opacity 0.5s linear, visibility 0s linear 0.5s; /* Smooth transition for opacity */
 }
 
+.modal-visible {
+  display: block; /* Display the modal */
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Make visible */
+}
+ 
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto; /* Aligns center horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Responsive width */
+    max-width: 600px; /* Maximum width */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Add a shadow for better visibility */
+    position: relative; /* Needed for centering vertically */
+    top: 50%; /* Push down by half of viewport height */
+    transform: translateY(-50%); /* Pull back up by half of its own height */
+  }
+
+  .modal-content {
+    display: flex; /* Use Flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    text-align: center; /* Center text for any inline elements or text nodes */
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .modal-content {
+      width: 90%; /* Slightly more width on smaller screens */
+    }
+  }
+  
 /* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+/* Image Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.modal-content img {
+  height: auto;
+  margin: 0%; /* Optional: Adds some space above the image */
+  transition: transform 5s; /* Smooth transition for zooming */
+  animation: fadeIn 3s ease-out forwards;
 }
 
 /* The Close Button */
@@ -498,4 +540,18 @@ footer {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+.close {
+  position: absolute;
+  top: 0; /* Aligns to the top of the modal-content */
+  right: 0; /* Aligns to the right of the modal-content */
+  padding: 10px; /* Adds some space around the 'x' for easier clicking */
+  cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+  color: #aaa; /* Styling for the button, adjust as needed */
+}
+
+.close:hover,
+.close:focus {
+  color: darkorange; /* Change color on hover/focus for better user feedback */
+  text-decoration: none;
 }
