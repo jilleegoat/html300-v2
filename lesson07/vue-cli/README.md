@@ -1,6 +1,6 @@
-# assignment07
+# vue-cli
 
-> assignment07 vue
+> A Vue.js project
 
 ## Build Setup
 
