@@ -1,0 +1,72 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 100%; // Adjust width as needed
+    max-width: 600px; // Set a max-width if necessary
+    display: flex; // Makes the card a flex container
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+  
+    .profile-container { 
+      @include flex-center;
+      flex-direction: column;
+      flex: 1; // Adjust this value to allocate space as needed
+      background-color: #cccccc;
+      
+      .profile-photo {
+        padding: 20px;
+  
+        img {
+          border-radius: 50%;
+          width: 100px; 
+        }
+      }
+  
+      .profile-info {
+        @include flex-center; 
+        padding: 20px;
+        background-color: #cccccc;
+        width: 100%; // Ensure full width to center content
+        justify-content: center;
+        flex-direction: column;
+  
+        h1, p {
+          width: 100%; // Ensure full width to center content
+          text-align: center;
+        }
+      }
+    }
+  
+    .profile-details {
+      flex: 1; // This allows the profile-details to take up more space
+      background-color: #999999;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; // Center the details vertically
+  
+      p, a {
+        margin: 10px 0;
+        color: #333;
+      }
+  
+      a {
+        color: #0077b5;
+        text-decoration: none;
+      }
+    }
+  }
+  
+  body {
+    @include flex-center;
+    height: 100vh;
+    margin: 0;
+    background-color: #eaeaea;
+  }
+  
