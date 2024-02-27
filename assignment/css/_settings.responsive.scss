@@ -1,52 +1,76 @@
+// Define Breakpoints
+$breakpoints: (
+    "small"        : "screen and (max-width: 576px)",
+    "medium"       : "screen and (min-width: 577px) and (max-width: 768px)",
+    "large"        : "screen and (min-width: 769px) and (max-width: 992px)",
+    "extra-large"  : "screen and (min-width: 993px) and (max-width: 1200px)",
+    "huge"         : "screen and (min-width: 1201px)",
+) !default;
+
 // Media Query Generator
-
-@mixin media-query($mq) {
-
-    $breakpoint-found: false;
-
-    // Loop through the list of breakpoints we’ve provided in our settings file.
-    @each $breakpoint in $breakpoints {
-
-        // Grab the alias and the condition from their respective locations in
-        // the list.
-        $alias:     nth($breakpoint, 1);
-        $condition: nth($breakpoint, 2);
-
-        // If the media query we’ve specified has an alias and a condition...
-        @if $mq == $alias and $condition {
-
-            // ...tell the mixin that we’ve found it...
-            $breakpoint-found: true;
-
-            // ...and spit it out here.
-            @media #{$condition} {
-                @content;
-            }
-
+@mixin media-query($name) {
+    @if map-has-key($breakpoints, $name) {
+        $value: map-get($breakpoints, $name);
+        @media #{$value} {
+            @content;
         }
-
+    } @else {
+        @warn "No breakpoint defined for `#{$name}`.";
     }
-
-    // If the user specifies a non-exitent alias, send them a warning.
-    @if $breakpoint-found == false{
-        @warn "Oops! Breakpoint ‘#{$mq}’ does not exist."
-    }
-
 }
 
-// Add breakpoints
-$breakpoints: (
-    "xl"            "screen and (min-width: 1300px)",
-    "desk"          "screen and (min-width: 1024px)",
-    "lg"            "screen and (min-width: 920px)",
-    "tab"           "screen and (min-width: 768px)",
-    "mobile"        "screen and (max-width: 767px)",
-    "infograph"     "screen and (min-width: 540px)",
-    "med"           "screen and (min-width: 40em)",
-    "sm"            "screen and (min-width: 30em)",
-    "small"         "screen and (min-width: 20em)",
-    "tiny"          "screen and (max-width: 320px)",
-    "retina"        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)",
-    "ie"            "all and(-ms-high-contrast: none), (-ms-high-contrast: active)",
-    "ipad"          "screen and (min-device-width : 768px) and (max-device-width : 1024px)"
-) !default;
+// Example Usage
+// This is how you would apply your mixin to achieve responsive design.
+.example {
+    // Base styles apply to mobile-first (no media query needed)
+    padding: 20px;
+    background-color: lightgray;
+    color: black;
+
+    // Adjust for medium devices
+    @include media-query("medium") {
+        background-color: darkgray;
+    }
+
+    // Adjust for large devices
+    @include media-query("large") {
+        background-color: gray;
+    }
+
+    // Adjust for extra-large devices
+    @include media-query("extra-large") {
+        background-color: black;
+        color: white;
+    }
+
+    // Adjust for huge devices
+    @include media-query("huge") {
+        padding: 40px;
+    }
+}
+.card {
+    display: flex;
+    flex-direction: column; // Default to side-by-side on larger screens
+    // Other styles...
+  
+    @include media-query("small") {
+      flex-direction: column; // Stack on top of each other on smaller screens
+    }
+  }
+  
+  .profile-container, .profile-details {
+    // Your default styles...
+    
+    @include media-query("small") {
+      width: 100%; // Use the full width on smaller screens
+      // Adjust padding or margins as necessary for small screens
+    }
+  }
+  
+  // You can also adjust text sizes responsively
+  h1, p {
+    // Default text size
+    @include media-query("small") {
+      font-size: smaller; // Adjust text size for small screens
+    }
+  }

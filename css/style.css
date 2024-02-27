@@ -1,17 +1,20 @@
+@charset "UTF-8";
 /* Error: @use rules must be written before any other rules.
  *   ,
  * 6 | @use "sass:meta";
  *   | ^^^^^^^^^^^^^^^^
  *   '
  *   style.scss 6:1  root stylesheet */
-
 body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
   white-space: pre;
   display: block;
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: 'Error: @use rules must be written before any other rules.\a   \2577 \a 6 \2502  @use "sass:meta";\d\a   \2502  ^^^^^^^^^^^^^^^^\a   \2575 \a   style.scss 6:1  root stylesheet';
+  content: 'Error: @use rules must be written before any other rules.\a   ╷\a 6 │ @use "sass:meta";\d\a   │ ^^^^^^^^^^^^^^^^\a   ╵\a   style.scss 6:1  root stylesheet';
 }
+
+
+
+/*# sourceMappingURL=style.css.map */
