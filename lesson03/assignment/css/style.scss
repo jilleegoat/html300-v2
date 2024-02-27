@@ -1,6 +1,86 @@
-// Import partials here
-@import 'base.normalize';
+// Import Variables
 @import 'settings.variables';
-@import 'settings.responsive';
-@import 'components.content';
 
+
+// Import partials
+@import 'base.normalize';
+@import 'components.content';
+@import 'settings.responsive';
+
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%; // Adjust width as needed
+  max-width: 575px; // Set a max-width if necessary
+  height: 300px; // Adjust height as needed
+  display: flex; // Makes the card a flex container
+  border: 20px solid $gray;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+
+  .profile-container { // This is the new container for the image and the profile info
+    @include flex-center;
+    flex-direction: column;
+    flex: 1; // Adjust this value to allocate space as needed
+    border: 15px solid white;
+    border-radius: 5px;
+  }
+    
+    .profile-photo {
+      padding: 10px;
+  
+
+      img {
+        border-radius: 50%;
+        width: 100px; // Adjust the image size according to your requirement
+      }
+    }
+
+    .profile-info {
+      @include flex-center; 
+      padding: 15px;
+      width: 100%; 
+      flex-direction: column;
+
+      h1, p {
+        width: 100%; 
+        text-align: center;
+        word-spacing: normal;
+        line-height: 0.25;
+      }
+    }
+  }
+
+  .profile-details {
+    flex: 2; 
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Center the details vertically
+    border: 15px solid $lightgray;
+    border-radius: 5px;
+
+    p, a {
+      margin: 10px 0;
+      color: #333;
+      line-height: 0.5;
+    }
+
+    a {
+      color: #0077b5;
+      text-decoration: none;
+    }
+  }
+
+body {
+  @include flex-center;
+  height: 100vh;
+  margin: 0;
+  background-color: #eaeaea;
+}
