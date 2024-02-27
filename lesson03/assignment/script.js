@@ -22,12 +22,12 @@ const jsonData = [
       "school": "University of Washington",
       "major": "Marketing",
       "email": "paolo@example.com",
-      "photo": "img/headshot.jpg"
+      "photo": "../img/headshot.jpg" //Issue with getting the image to display
     },
-    // Add more data objects as needed
+   
   ];
   
-  // Function to create card components
+  // Create card components
   function createCard(data) {
     const cardContainer = document.getElementById('cards-container');
   

@@ -19,7 +19,7 @@
   max-width: 575px; // Set a max-width if necessary
   height: 300px; // Adjust height as needed
   display: flex; // Makes the card a flex container
-  border: 20px solid $gray;
+  border: 20px solid $darkgray;
   border-radius: 5px;
   overflow: hidden;
   font-family: 'Arial', sans-serif;
@@ -52,7 +52,7 @@
         width: 100%; 
         text-align: center;
         word-spacing: normal;
-        line-height: 0.25;
+        line-height: 1.0;
       }
     }
   }
@@ -69,7 +69,7 @@
     p, a {
       margin: 10px 0;
       color: #333;
-      line-height: 0.5;
+      line-height: 1.0;
     }
 
     a {
