@@ -1,4 +1,5 @@
 <template>
+  <div>
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -6,9 +7,19 @@
     <router-link to="/resourcepage">Resources</router-link>
   </nav>
   <router-view/>
-
+<FooterBar/>
+</div>
 </template>
+<script>
+import FooterBar from '@/components/FooterBar.vue'; // Update the path if necessary
 
+export default {
+  components: {
+    FooterBar //  FooterBar component
+  }
+};
+
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

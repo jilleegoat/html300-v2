@@ -6,8 +6,8 @@
      <!-- Image gallery -->
      <div v-if="isLoggedIn">
       <h2>Your Images</h2>
-      <div v-for="(image, index) in images" :key="index">
-        <img :src="getImageUrl(image)" :alt="'Image ' + (index + 1)">
+      <div v-for="(image, index) in computedImages" :key="index">
+    <img :src="image" :alt="'Image ' + (index + 1)">
       </div>
     </div>
   </div>
