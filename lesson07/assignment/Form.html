@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Newsletter Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Optional Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+    <form id="newsletterForm">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Name" required>
+        </div>
+        <button type="button" id="clickMeBtn" class="btn btn-primary">Click Me</button>
+        <button type="submit" id="submitBtn" class="btn btn-secondary" disabled>Submit</button>
+    </form>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#submitBtn').tooltip({title: "Please click 'Click Me' button first", trigger: "hover"});
+
+    $('#clickMeBtn').click(function() {
+        $('#submitBtn').prop('disabled', false);
+        $('#submitBtn').tooltip('dispose');
+    });
+});
+</script>
+
+</body>
+</html>
