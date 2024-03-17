@@ -1,0 +1,117 @@
+@mixin accordion-item-style {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+  
+    .accordion-header {
+      padding: 0.5rem 1rem;
+      background-color: #e9ecef;
+      border-bottom: 1px solid #e0e0e0;
+  
+      .accordion-button {
+        width: 100%;
+        text-align: left;
+        color: #495057;
+        font-size: 1.25rem;
+        background-color: inherit;
+        border: none;
+        outline: none;
+  
+        &:focus {
+          box-shadow: none;
+        }
+  
+        &:not(.collapsed) {
+          color: #0056b3;
+          background-color: #e9ecef;
+        }
+      }
+    }
+  
+    .accordion-body {
+      padding: 1rem;
+      line-height: 1.5;
+      font-size: 1rem;
+    }
+  }
+$body-padding-top: 60px; // Adjust this value based on the actual height of your NavBar.
+
+body {
+  padding-top: $body-padding-top;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 1em 5%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+
+    @media (max-width: 768px) {
+      justify-content: space-between;
+      padding: 1em 2%;
+    }
+}
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em; /* More clickable area for links*/
+    border-radius: 5px; /* Rounded corners for a modern look*/
+    transition: background-color 0.3s; /* Smooth background transition on hover*/
+  
+    &:hover, &:focus {
+      background-color: rgba(255, 255, 255, 0.2); /* Hover effect for links*/
+      outline: none; /* Remove focus outline and replace with background-color*/
+    }
+  
+    &:last-child {
+      margin-right: 0; /* Remove the margin for the last link*/
+    }
+  }
+  
+  img {
+    max-height: 50px; /* Set a max height for logos*/
+    width: auto; /* Ensure the logo maintains aspect ratio*/
+    border: none; /* Remove the border if it's unnecessary*/
+  }
+  
+  /*Add a logo class to specifically style the navbar brand/logo*/
+  .logo {
+    margin-right: auto; /* Push all the navigation items to the right*/
+    display: flex;
+    align-items: center; /* Center logo vertically*/
+  
+    img {
+      margin-right: 0.5em; /* Space between logo image and brand name if needed */
+    }
+  }
+  @mixin footer-style {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333; 
+    color: white; 
+    text-align: center;
+    padding: 1rem 0; 
+    z-index: 1000; 
+  }
+  
+  footer {
+    @include footer-style;
+  }
+  .main-content {
+    padding-top: $body-padding-top; /*Ensure this matches the height of the NavBar*/
+  }
+  

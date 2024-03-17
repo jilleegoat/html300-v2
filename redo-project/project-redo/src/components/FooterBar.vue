@@ -37,8 +37,12 @@ export default {
   </script> 
   <style>
 .footer{
+  position:absolute;
+  left: 0;
+  right: 0;
   padding-right:5%;
   padding-left: 5%;
+  bottom:0%;
   color: darkslategray;
 }
 </style>

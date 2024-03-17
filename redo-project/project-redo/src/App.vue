@@ -1,6 +1,7 @@
 <template>
   <div>
-  <nav>
+  <NavBar/>
+    <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
     <router-link to="/infopage">Info</router-link>
@@ -11,11 +12,11 @@
 </div>
 </template>
 <script>
-import FooterBar from '@/components/FooterBar.vue'; // Update the path if necessary
-
+import FooterBar from '@/components/FooterBar.vue';
+import NavBar from '@/components/NavBar.vue';
 export default {
   components: {
-    FooterBar //  FooterBar component
+    FooterBar, NavBar
   }
 };
 
@@ -27,12 +28,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-nav a {
-  font-weight: bold;
-  color: navy;
-  padding: 2.5%;
 }
 
 nav a.router-link-exact-active {

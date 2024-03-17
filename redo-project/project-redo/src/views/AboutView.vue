@@ -10,11 +10,25 @@
     <img :src="image" :alt="'Image ' + (index + 1)">
       </div>
     </div>
+    <div>
+      <image-component
+  v-if="isLoggedIn"
+  :src="require('../assets/02.jpg')"
+  alt="Image description"
+  title="Title of Image"
+/>
+
+  </div>
   </div>
 </template>
 
 <script>
+import ImageComponent from '../components/ImageComponent.vue';
+
 export default {
+  components: {
+    ImageComponent
+  },
   data() {
     return {
       isLoggedIn: false,
