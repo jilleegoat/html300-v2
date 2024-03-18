@@ -114,4 +114,9 @@ nav {
   .main-content {
     padding-top: $body-padding-top; /*Ensure this matches the height of the NavBar*/
   }
-  
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 1rem; 
+    padding: 1rem; 
+  }
