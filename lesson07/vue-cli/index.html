@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Newsletter Sign-up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="app" class="container mt-5">
+    <form @submit.prevent="submitForm">
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" v-model="email" class="form-control" id="email" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" v-model="name" class="form-control" id="name" placeholder="Name" required>
+        </div>
+        <button type="button" @click="enableSubmit" class="btn btn-primary">Click Me</button>
+        <button type="submit" :class="{'btn-secondary': !isSubmitEnabled, 'btn-primary': isSubmitEnabled}" :disabled="!isSubmitEnabled" class="btn" v-bind:title="buttonTitle">Submit</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        email: '',
+        name: '',
+        isSubmitEnabled: false,
+    },
+    computed: {
+        buttonTitle() {
+            return this.isSubmitEnabled ? '' : "Please click 'Click Me' button first";
+        }
+    },
+    methods: {
+        enableSubmit() {
+            this.isSubmitEnabled = true;
+        },
+        submitForm() {
+            alert("Form submitted with Email: " + this.email + " and Name: " + this.name);
+        }
+    }
+});
+</script>
+
+</body>
+</html>
+
