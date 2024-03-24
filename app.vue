@@ -2,18 +2,19 @@
   <div>
   <NavBar/>
     <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-    <router-link to="/infopage">Info</router-link>
-    <router-link to="/resourcepage">Resources</router-link>
+    <NuxtLink to="/">Home</NuxtLink> |
+    <NuxtLink to="/about">About</NuxtLink>
+    <NuxtLink to="/infopage">Info</NuxtLink>
+    <NuxtLink to="/resourcepage">Resources</NuxtLink>
+    <NuxtLink to="/index">Index</NuxtLink>
   </nav>
   <router-view/>
 <FooterBar/>
 </div>
 </template>
 <script>
-import FooterBar from './components/FooterBar.vue';
-import NavBar from './components/NavBar.vue';
+import FooterBar from '../components/FooterBar.vue';
+import NavBar from '../components/NavBar.vue';
 export default {
   components: {
     FooterBar, NavBar

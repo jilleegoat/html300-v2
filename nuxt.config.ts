@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { NuxtConfig } from '@nuxt/types';
+// https://nuxt.com/docs/api/configuration/nuxt-config
+import type { NuxtConfig } from '@nuxt/types';
 
 const config: NuxtConfig = {
   // Other configurations...

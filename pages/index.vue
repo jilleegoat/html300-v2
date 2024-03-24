@@ -1,5 +1,5 @@
 <template>
-    <div class="about">
+    <div class="index">
       <h1 v-if="isLoggedIn">Welcome back, user!</h1>
       <h1 v-else>Please log in to continue.</h1>
       <button v-if="!isLoggedIn" @click="login">Login</button>

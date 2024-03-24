@@ -7,27 +7,19 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="../views/HomeView.vue">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="../pages/HomeView.vue">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../views/AboutView.vue">About Us</a>
+                  <a class="nav-link" href="../pages/AboutView.vue">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../views/InfoPage.vue">Blog</a>
+                  <a class="nav-link" href="../pages/InfoPage.vue">Blog</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../views/ResourcePage.vue">Local Resources</a>
+                  <a class="nav-link" href="../pages/ResourcePage.vue">Local Resources</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="index.html">Home</a>
-                    <a class="dropdown-item" href="aboutus.html">About Us</a>
-                    <a class="dropdown-item" href="blog.html">Blog</a>
-                    <a class="dropdown-item" href="localresources.html">Local Resources</a>
-                  </div></li></ul></div>
+                </ul>
+                </div>
     </nav>
   </template>
   
@@ -40,5 +32,6 @@ export default {
 
   
   <style>
-  @import 'styles/styles.scss';
+  @import '../styles/styles.scss';
+  
   </style>
