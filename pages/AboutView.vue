@@ -1,5 +1,5 @@
 <template>
-  
+
     <div class="about">
       <h1 v-if="isLoggedIn">Welcome back, user!</h1>
       <h1 v-else>Please log in to continue.</h1>
@@ -20,9 +20,9 @@
       return {
         isLoggedIn: false,
         images: [
-          '02.jpg',
-          'bizlaboption2.jpg',
-          'footer-logo-light.png',
+            '@/assets/02.jpg',
+          '@/assets/bizlaboption2.jpg',
+          '@/assets/footer-logo-light.png',
           // more image filenames
         ]
       }

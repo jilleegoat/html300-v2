@@ -15,4 +15,7 @@ export default {
   plugins: [
     '../project/plugins/geocode.js'
   ],
+  serverMiddleware: [
+    { path: '/api', handler: '../server/proxy.js' },
+  ],
 }
