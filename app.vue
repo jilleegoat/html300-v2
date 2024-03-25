@@ -1,12 +1,11 @@
 <template>
   <div>
-  <NavBar/>
     <nav>
-    <NuxtLink to="/">Home</NuxtLink> |
-    <NuxtLink to="/about">About</NuxtLink>
-    <NuxtLink to="/infopage">Info</NuxtLink>
-    <NuxtLink to="/resourcepage">Resources</NuxtLink>
-    <NuxtLink to="/index">Index</NuxtLink>
+    <NuxtLink to="/HomeView">Home</NuxtLink> |
+    <NuxtLink to="/AboutView">About</NuxtLink>
+    <NuxtLink to="/InfoPage">Info</NuxtLink>
+    <NuxtLink to="/ResourcePage">Resources</NuxtLink>
+    <NuxtLink to="/">Index</NuxtLink>
   </nav>
   <router-view/>
 <FooterBar/>
@@ -14,15 +13,15 @@
 </template>
 <script>
 import FooterBar from '../components/FooterBar.vue';
-import NavBar from '../components/NavBar.vue';
 export default {
   components: {
-    FooterBar, NavBar
+    FooterBar
   }
 };
 
 </script>
 <style>
+@import './styles/styles.scss';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

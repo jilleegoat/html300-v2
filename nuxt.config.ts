@@ -3,16 +3,15 @@
 import type { NuxtConfig } from '@nuxt/types';
 
 const config: NuxtConfig = {
-  // Other configurations...
-
+  modules: [
+    '@nuxtjs/axios',
+  ],
+  axios: {
+    baseURL: 'https://jsonplaceholder.typicode.com', // example base URL
+  },
   plugins: [
     './plugins/geocode.js' // Ensure the file extension matches your plugin file
   ],
 
   // Other configurations...
 };
-
-
-export default defineNuxtConfig({
-  devtools: { enabled: true }
-})

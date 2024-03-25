@@ -42,6 +42,3 @@
   
   </div>
 </template>
-<style>
-@import '../styles/styles.scss'
-</style>

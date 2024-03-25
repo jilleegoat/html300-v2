@@ -1,41 +1,53 @@
 <template>
-    <div class="index">
-      <h1 v-if="isLoggedIn">Welcome back, user!</h1>
-      <h1 v-else>Please log in to continue.</h1>
-      <button v-if="!isLoggedIn" @click="login">Login</button>
-       <!-- Image gallery -->
-       <div v-if="isLoggedIn">
-        <h2>Your Images</h2>
-        <div v-for="(image, index) in computedImages" :key="index">
-      <img :src="image" :alt="'Image ' + (index + 1)">
-        </div>
-      </div>
+  <h1>Search SBA Articles</h1>
+  <form @submit.prevent="handleFormSubmit">
+    <input type="text" v-model="searchTerm" placeholder="Enter search term" />
+    <button type="submit">Search</button>
+  </form>
+  <div id="results">
+    <div v-for="article in articles" :key="article.id">
+      <h3>{{ article.title }}</h3>
+      <p>{{ article.summary }}</p>
+      <a :href="article.url" target="_blank">Read more</a>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        isLoggedIn: false,
-        images: [
-          '02.jpg',
-          'bizlaboption2.jpg',
-          'footer-logo-light.png',
-          // more image filenames
-        ]
-      }
-    },
-    computed: {
-      computedImages() {
-        return this.images.map(image => require(`@/assets/${image}`));
-      }
-    },
-    methods: {
-      login() {
-        this.isLoggedIn = true;
-      }
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      searchTerm: '',
+      articles: []
+    };
+  },
+  methods: {
+    handleFormSubmit() {
+      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+      const apiUrl = `https://sba.gov/api/content/search/articles.json?searchTerm=${encodeURIComponent(this.searchTerm)}`;
+      const url = proxyUrl + apiUrl;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          this.articles = data.items || [];
+        })
+        .catch(error => console.error('Error fetching data:', error));
     }
   }
-  </script>
-  
+}
+</script>
+
+<style>
+@import '../styles/styles.scss';
+#searchForm {
+  margin-bottom: 20px;
+}
+
+#results div {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+</style>
