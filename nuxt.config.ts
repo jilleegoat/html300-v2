@@ -9,9 +9,10 @@ const config: NuxtConfig = {
   axios: {
     baseURL: 'https://jsonplaceholder.typicode.com', // example base URL
   },
-  plugins: [
-    './plugins/geocode.js' // Ensure the file extension matches your plugin file
-  ],
-
-  // Other configurations...
 };
+
+export default {
+  plugins: [
+    '../project/plugins/geocode.js'
+  ],
+}

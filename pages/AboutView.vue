@@ -1,4 +1,5 @@
 <template>
+  
     <div class="about">
       <h1 v-if="isLoggedIn">Welcome back, user!</h1>
       <h1 v-else>Please log in to continue.</h1>

@@ -8,24 +8,20 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      address: '',
-      location: null
-    };
-  },
-  methods: {
-    performGeocoding() {
-      this.$geocode(this.address)
-        .then(location => {
-          this.location = location;
-        })
-        .catch(error => {
-          console.error(error);
-        });
+<script setup>
+import { ref } from 'vue';
+import useGeocode from '../composables/useGeocode.js';
+
+const address = ref('');
+const location = ref(null);
+const { geocode } = useGeocode();
+
+async function performGeocoding() {
+    try {
+        const result = await geocode(address.value);
+        location.value = result;
+    } catch (error) {
+        console.error('Geocoding error:', error);
     }
-  }
-};
+}
 </script>
